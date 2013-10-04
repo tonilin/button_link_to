@@ -1,5 +1,8 @@
+require "rails"
 require "button_link_to/version"
 
 module ButtonLinkTo
-  # Your code goes here...
+  module Rails
+      require "button_link_to/engine"
+  end
 end
