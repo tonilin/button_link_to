@@ -12,7 +12,7 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-```ruby
+```bash
   $ bundle
 ```
 
@@ -50,7 +50,7 @@ button_link_to "Delete Comment", comment_path(@comment), :method => :delete, :co
 
 HTML button by send block parameter
 
-```ruby
+```html
 button_link_to , comment_path(@comment), :remote => true, :class => "btn-link" do
   <i class="icon-remove"></i>  Delete Comment
 end
