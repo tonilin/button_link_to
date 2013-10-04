@@ -1,6 +1,6 @@
 # ButtonLinkTo
 
-TODO: Write a gem description
+A button version of Rails link_to helper
 
 ## Installation
 
@@ -12,13 +12,9 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install button_link_to
 
 ## Usage
 
-TODO: Write usage instructions here
 
 ## Contributing
 
