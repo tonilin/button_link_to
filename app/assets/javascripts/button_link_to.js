@@ -7,13 +7,21 @@
     }
   });
 
-  $(document).on("click.rails", "button[data-method]", function(e) {
-    if (!$.rails.allowAction($(e.currentTarget))) return $.rails.stopEverything(e);
-  });
-
   // jquery ujs hack for form restful button
   $(document).on("click.rails", "button[data-method]", function(e) {
     button = $(e.currentTarget)
+
+
+    if (button.data('method') && button.data('remote') === undefined) {
+      if (!$.rails.allowAction(button)) return $.rails.stopEverything(e);
+      
+      handleMethod(button)
+    }
+
+  });
+
+
+  handleMethod = function(button) {
 
     var url = button.data("url"),
       method = button.data('method'),
@@ -31,6 +39,8 @@
 
     form.hide().append(metadata_input).appendTo('body');
     form.submit();
+  }
 
-  });
+
+
 })();
