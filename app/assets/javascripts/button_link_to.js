@@ -1,5 +1,6 @@
 (function() {
-  // jquery ujs hack for remote ajax button
+  $document = $(document)
+
   $(document).on("mouseup", "button[data-remote]", function(e) {
     // middle button click
     if(e.which == 2) {
@@ -7,21 +8,27 @@
     }
   });
 
-  // jquery ujs hack for form restful button
-  $(document).on("click.rails", "button[data-method]", function(e) {
+
+  $document.on("click.rails", "button[data-method]", function(e) {
     button = $(e.currentTarget)
 
+    if (button.data('disable-with')) $.rails.disableElement(button);
 
     if (button.data('method') && button.data('remote') === undefined) {
       if (!$.rails.allowAction(button)) return $.rails.stopEverything(e);
-      
+
       handleMethod(button)
     }
 
   });
 
 
-  handleMethod = function(button) {
+  $document.on("ajax:complete", "button[data-disable-with]", function() {
+    $.rails.enableElement($(this));
+  });
+
+
+  var handleMethod = function(button) {
 
     var url = button.data("url"),
       method = button.data('method'),
