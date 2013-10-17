@@ -1,6 +1,10 @@
 # ButtonLinkTo
 
-A button version of Rails link_to helper. Try your self <http://button-link-to.herokuapp.com/>
+A button version of Rails link_to helper. 
+
+## Demo
+
+Try it your self <http://button-link-to.herokuapp.com/>
 
 ## Installation
 
